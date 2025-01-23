@@ -27,7 +27,7 @@ Here are the libraries added to the backend and their purposes:
 - **`cookie-parser` (v1.4.7)**: Middleware for parsing cookies in incoming requests. It is used to handle authentication tokens stored in cookies.
 - **`cors` (v2.8.5)**: Middleware to enable Cross-Origin Resource Sharing (CORS). It allows the frontend to communicate with the backend API securely.
 - **`date-fns` (v4.1.0)**: A library for date manipulation and formatting. It is used to handle dates in the backend, such as event dates and timestamps.
-- **`dotenv` (v16.4.5)**: A library to load environment variables from a `.env` file into the application. It ensures sensitive configuration data (e.g., database URLs, secrets) is not hardcoded.
+- **`dotenv` (v16.4.5)**: A library to load environment variables from a `config.env` file into the application. It ensures sensitive configuration data (e.g., database URLs, secrets) is not hardcoded.
 - **`express` (v4.19.2)**: A minimal and flexible Node.js web application framework. It is used to build the backend API and handle routing, middleware, and requests.
 - **`joi` (v17.13.3)**: A schema validation library. It is used to validate incoming request data (e.g., user inputs, API payloads) and ensure data integrity.
 - **`jsonwebtoken` (v9.0.2)**: A library for generating and verifying JSON Web Tokens (JWT). It is used for user authentication and authorization.
@@ -53,7 +53,7 @@ The application handles the assignment of trainers and email notifications as fo
    - The email content includes details about the event, such as the date, time, and location.
 
 3. **Mailhog Integration**:
-   - Mailhog is configured in the `.env` file with the following settings:
+   - Mailhog is configured in the `config.env` file with the following settings:
      ```env
      SMTP_HOST=mailhog
      SMTP_PORT=1025
@@ -79,7 +79,6 @@ If I had more time, I would:
 - **Implement user roles and permissions**: Introduce admin and regular user roles with specific privileges.
 - **Optimize backend performance**: Add indexing for database queries and implement caching for frequently accessed data.
 - **Expand email notifications**: Include reminders for trainers and confirmations for participants.
-- **Add testing**: Write unit and integration tests for critical functionalities to ensure reliability.
 - **Localization support**: Provide multilingual options for users in different regions.
 
 ---
@@ -104,9 +103,6 @@ The test was well-structured and covered key areas of full-stack development. It
 ---
 
 ### Q) Do you have any suggestions on how we can improve the test?
-- **Increase the time limit**: Allowing 1.5–2 hours would help candidates implement more features and polish their work.
 - **Provide a pre-configured Docker setup**: Including a basic `docker-compose.yml` file would let candidates focus more on the application logic rather than troubleshooting Docker.
-- **Clarify the expected scope**: Specifying which features are mandatory and which are "nice to have" would help candidates prioritize their efforts better.
-- **Include a small sample dataset**: Pre-seeding the database with a few courses and trainers would allow candidates to focus on the business logic instead of creating data manually during testing.
 
 ---
