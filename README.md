@@ -53,7 +53,7 @@ npm install
 
 Assurez-vous d'avoir les fichiers `.env` pour le frontend et le backend.
 
-### Exemple de `.env` pour le backend :
+### Exemple de `.env` pour le backend (un fichier d'environnement existe déjà, vous pouvez sauter cette étape) :
 
 ```env
 DATABASE_URL=mongodb://mongodb:27017/seminar_management
