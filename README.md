@@ -1,39 +1,40 @@
 # Seminar Management Application
 
-Ce projet est une solution complète pour la gestion de séminaires, permettant de créer des cours, d'assigner des formateurs, et d'envoyer des notifications par e-mail aux formateurs.
+This project is a comprehensive solution for managing seminars, enabling the creation of courses, assignment of trainers, and sending email notifications to trainers.
 
-## Fonctionnalités principales
-- **Gestion des cours** : création et affichage des cours.
-- **Gestion des formateurs** : création et assignation de formateurs aux cours.
-- **Notifications** : envoi d'un email au formateur lors de son assignation à un cours.
-- **Détection des conflits de planification**.
-- **Suggestion du formateur optimal** pour un cours donné.
+## Key Features
+- **Course Management**: Creation and display of courses.
+- **Trainer Management**: Creation and assignment of trainers to courses.
+- **Notifications**: Sending an email to the trainer when they are assigned to a course.
+- **Scheduling Conflict Detection**.
+- **Optimal Trainer Suggestion** for a given course.
 
 ---
 
-## Prérequis
-Avant de commencer, assurez-vous d'avoir les outils suivants installés sur votre machine :
-- [Node.js](https://nodejs.org/) (version LTS recommandée)
-- [Docker](https://www.docker.com/) et [Docker Compose](https://docs.docker.com/compose/)
+## Prerequisites
+Before starting, ensure you have the following tools installed on your machine:
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
 - [Git](https://git-scm.com/)
 
 ---
 
-## Installation et démarrage
+## Installation and Setup
 
-### 1. Cloner le projet
-Clonez ce dépôt sur votre machine locale :
+### 1. Clone the Project
+Clone this repository to your local machine:
 ```bash
 git clone https://github.com/Rimao416/fullstack-dev-assessment.git
 cd fullstack-dev-assessment.git
 ```
-# 2. Installer les dépendances
 
-Installez les dépendances nécessaires pour le frontend et le backend.
+# 2. Install Dependencies
+
+Install the necessary dependencies for the frontend and backend.
 
 ## Frontend
 
-Allez dans le dossier `frontend` :
+Navigate to the `frontend` folder:
 
 ```bash
 cd frontend
@@ -42,18 +43,18 @@ npm install
 
 ## Backend
 
-Allez dans le dossier `backend` :
+Navigate to the `backend` folder:
 
 ```bash
 cd backend
 npm install
 ```
 
-# 3. Configurer les fichiers d'environnement
+# 3. Configure Environment Files
 
-Assurez-vous d'avoir les fichiers `.env` pour le frontend et le backend.
+Ensure you have the `.env` files for the frontend and backend.
 
-### Exemple de `.env` pour le backend (un fichier d'environnement existe déjà, vous pouvez sauter cette étape) :
+### Example `.env` for the backend (an environment file already exists, you can skip this step):
 
 ```env
 DATABASE_URL=mongodb://mongodb:27017/seminar_management
@@ -64,58 +65,53 @@ SMTP_USER=
 SMTP_PASSWORD=
 ```
 
-### Exemple de `.env` pour le frontend :
+### Example `.env` for the frontend:
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:5000
 ```
 
-# 4. Lancer l'application avec Docker
+# 4. Run the Application with Docker
 
-À la racine du projet, exécutez la commande suivante pour construire et démarrer les conteneurs Docker :
+At the root of the project, execute the following command to build and start the Docker containers:
 
 ```bash
 docker-compose up --build
 ```
 
-Cette commande démarre :
+This command starts:
+- The frontend (Next.js)
+- The backend (Node.js)
+- The database (MongoDB or MySQL)
+- Mailhog for testing email notifications
 
-- Le frontend (Next.js)
-- Le backend (Node.js)
-- La base de données (MongoDB ou MySQL)
-- Mailhog pour tester les notifications par e-mail
+# 5. Test the Application
 
-# 5. Tester l'application
+Once the containers are running:
+- **Frontend**: [http://localhost:3000](http://localhost:3000)
+- **Backend API**: [http://localhost:5000](http://localhost:5000)
+- **Mailhog**: [http://localhost:8025](http://localhost:8025)
 
-Une fois les conteneurs démarrés :
+# 6. Create Initial Data
 
-- **Frontend** : [http://localhost:3000](http://localhost:3000)
-- **Backend API** : [http://localhost:5000](http://localhost:5000)
-- **Mailhog** : [http://localhost:8025](http://localhost:8025)
-
-
-# 6. Créer les données initiales
-
-Assurez-vous que le conteneur Docker du backend est en marche. Ensuite, exécutez la commande suivante pour créer les données initiales :
+Ensure the backend Docker container is running. Then, execute the following command to create the initial data:
 
 ```bash
 docker exec -it test-backend-1 npm run data:create
 ```
 
-**Remarque :**  
-
-- `test-backend-1` est le nom du conteneur backend par défaut. Si ce n'est pas le cas, vous pouvez vérifier le nom exact du conteneur en utilisant la commande suivante :
+**Note**:  
+- `test-backend-1` is the default name of the backend container. If this is not the case, you can check the exact container name using the following command:
 
 ```bash
 docker ps
 ```
 
-Cela affichera la liste des conteneurs en cours d'exécution. Identifiez le nom du conteneur backend et remplacez `test-backend-1` par ce nom dans la commande ci-dessus.
+This will display the list of running containers. Identify the backend container name and replace `test-backend-1` with this name in the command above.
 
-Exemple :
-
+Example:
 ```bash
-docker exec -it nom_du_conteneur_backend npm run data:create
+docker exec -it backend_container_name npm run data:create
 ```
 
-Cela exécutera le script de création des données initiales dans le conteneur backend.
+This will execute the script to create initial data in the backend container.
