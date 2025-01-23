@@ -93,3 +93,30 @@ Une fois les conteneurs démarrés :
 - **Backend API** : [http://localhost:5000](http://localhost:5000)
 - **Mailhog** : [http://localhost:8025](http://localhost:8025)
 
+```
+
+# 6. Créer les données initiales
+
+Assurez-vous que le conteneur Docker du backend est en marche. Ensuite, exécutez la commande suivante pour créer les données initiales :
+
+```bash
+docker exec -it test-backend-1 npm run data:create
+```
+
+**Remarque :**  
+
+- `test-backend-1` est le nom du conteneur backend par défaut. Si ce n'est pas le cas, vous pouvez vérifier le nom exact du conteneur en utilisant la commande suivante :
+
+```bash
+docker ps
+```
+
+Cela affichera la liste des conteneurs en cours d'exécution. Identifiez le nom du conteneur backend et remplacez `test-backend-1` par ce nom dans la commande ci-dessus.
+
+Exemple :
+
+```bash
+docker exec -it nom_du_conteneur_backend npm run data:create
+```
+
+Cela exécutera le script de création des données initiales dans le conteneur backend.
