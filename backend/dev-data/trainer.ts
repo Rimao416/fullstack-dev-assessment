@@ -1,0 +1,51 @@
+export const trainers = [
+    {
+      name: "John Doe",
+      training_subjects: ["React.js", "Next.js"],
+      location: "Berlin",
+      email: "john.doe@example.com",
+      password: "12345678",
+    },
+    {
+      name: "John Doe 3",
+      training_subjects: ["Mongodb", "Next.js"],
+      location: "Berlin",
+      email: "johnp.doe@example.com",
+      password: "12345678",
+    },
+    {
+      name: "John Doe 4",
+      training_subjects: ["Mongodb", "Next.js"],
+      location: "Berlin",
+      email: "johnq.doe@example.com",
+      password: "12345678",
+    },
+    {
+      name: "Alice Smith",
+      training_subjects: ["Node.js", "React.js", "Mongodb"],
+      location: "Munich",
+      email: "alice.smith@example.com",
+      password: "12345678",
+    },
+    {
+      name: "Bob Johnson",
+      training_subjects: ["Next.js", "Node.js"],
+      location: "Hamburg",
+      email: "bob.johnson@example.com",
+      password: "12345678",
+    },
+    {
+      name: "Charlie Brown",
+      training_subjects: ["React.js", "Mongodb", "Node.js", "Next.js"],
+      location: "Frankfurt",
+      email: "charlie.brown@example.com",
+      password: "12345678",
+    },
+    {
+      name: "Diana Prince",
+      training_subjects: ["Node.js", "Mongodb"],
+      location: "Cologne",
+      email: "diana.prince@example.com",
+      password: "12345678",
+    },
+  ];
