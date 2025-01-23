@@ -93,7 +93,6 @@ Une fois les conteneurs démarrés :
 - **Backend API** : [http://localhost:5000](http://localhost:5000)
 - **Mailhog** : [http://localhost:8025](http://localhost:8025)
 
-```
 
 # 6. Créer les données initiales
 
