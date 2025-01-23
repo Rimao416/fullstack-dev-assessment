@@ -1,40 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Seminar Management Application
 
-## Getting Started
+Ce projet est une solution complète pour la gestion de séminaires, permettant de créer des cours, d'assigner des formateurs, et d'envoyer des notifications par e-mail aux formateurs.
 
-First, run the development server:
+## Fonctionnalités principales
+- **Gestion des cours** : création et affichage des cours.
+- **Gestion des formateurs** : création et assignation de formateurs aux cours.
+- **Notifications** : envoi d'un email au formateur lors de son assignation à un cours.
+- **Détection des conflits de planification**.
+- **Suggestion du formateur optimal** pour un cours donné.
+
+---
+
+## Prérequis
+Avant de commencer, assurez-vous d'avoir les outils suivants installés sur votre machine :
+- [Node.js](https://nodejs.org/) (version LTS recommandée)
+- [Docker](https://www.docker.com/) et [Docker Compose](https://docs.docker.com/compose/)
+- [Git](https://git-scm.com/)
+
+---
+
+## Installation et démarrage
+
+### 1. Cloner le projet
+Clonez ce dépôt sur votre machine locale :
+```bash
+git clone https://github.com/Rimao416/fullstack-dev-assessment.git
+cd fullstack-dev-assessment.git
+
+```markdown
+# 2. Installer les dépendances
+
+Installez les dépendances nécessaires pour le frontend et le backend.
+
+## Frontend
+
+Allez dans le dossier `frontend` :
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd frontend
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Backend
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Allez dans le dossier `backend` :
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+cd backend
+npm install
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# 3. Configurer les fichiers d'environnement
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Assurez-vous d'avoir les fichiers `.env` pour le frontend et le backend.
 
-## Learn More
+### Exemple de `.env` pour le backend :
 
-To learn more about Next.js, take a look at the following resources:
+```env
+DATABASE_URL=mongodb://mongodb:27017/seminar_management
+JWT_SECRET=your_jwt_secret
+SMTP_HOST=mailhog
+SMTP_PORT=1025
+SMTP_USER=
+SMTP_PASSWORD=
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Exemple de `.env` pour le frontend :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
 
-## Deploy on Vercel
+# 4. Lancer l'application avec Docker
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+À la racine du projet, exécutez la commande suivante pour construire et démarrer les conteneurs Docker :
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+docker-compose up --build
+```
+
+Cette commande démarre :
+
+- Le frontend (Next.js)
+- Le backend (Node.js)
+- La base de données (MongoDB ou MySQL)
+- Mailhog pour tester les notifications par e-mail
+
+# 5. Tester l'application
+
+Une fois les conteneurs démarrés :
+
+- **Frontend** : [http://localhost:3000](http://localhost:3000)
+- **Backend API** : [http://localhost:5000](http://localhost:5000)
+- **Mailhog** : [http://localhost:8025](http://localhost:8025)
+```
