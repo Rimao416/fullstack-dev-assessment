@@ -26,8 +26,7 @@ Clonez ce dépôt sur votre machine locale :
 ```bash
 git clone https://github.com/Rimao416/fullstack-dev-assessment.git
 cd fullstack-dev-assessment.git
-
-```markdown
+```
 # 2. Installer les dépendances
 
 Installez les dépendances nécessaires pour le frontend et le backend.
@@ -93,4 +92,4 @@ Une fois les conteneurs démarrés :
 - **Frontend** : [http://localhost:3000](http://localhost:3000)
 - **Backend API** : [http://localhost:5000](http://localhost:5000)
 - **Mailhog** : [http://localhost:8025](http://localhost:8025)
-```
+
