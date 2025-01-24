@@ -5,7 +5,7 @@ import AppError from "../utils/appError";
 import trainerModel from "../models/trainerModel";
 import mongoose from "mongoose";
 import { format } from "date-fns";
-
+import sendEmail from "../utils/email";
 export const getCourses = catchAsync(async (req: Request, res: Response) => {
   const courses = await courseModel.find().populate({
     path: "trainer",
@@ -129,6 +129,21 @@ export const assignTrainer = catchAsync(
 
     // Assign the trainer to the course
     course.trainer = trainerId; // Using the `trainerId`
+
+    await sendEmail(
+      trainer.email,
+      "Trainer suggestion",
+      `Hello ${trainer.name},
+
+We are pleased to inform you that you have been assigned to a new training session.
+
+📌 Course Subject: ${course.name}
+📌 Location: ${course.location}
+
+Best regards,  
+The My Company Team
+`
+    );
     await course.save({ validateBeforeSave: false });
 
     return res.json({ message: "Trainer assigned successfully", course });

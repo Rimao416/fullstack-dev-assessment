@@ -4,7 +4,7 @@ import { AuthRequest } from "./authController";
 import AppError from "../utils/appError";
 import trainerModel from "../models/trainerModel";
 import { suggestTrainer } from "../middleware/suggestTrainer";
-import sendEmail from "../utils/email";
+
 
 export const getTrainerInfo = catchAsync(
   async (req: AuthRequest, res: Response, next: NextFunction) => {
@@ -120,22 +120,7 @@ export const suggestTrainerController = catchAsync(
     if (!trainer) {
       return next(new AppError("No suitable trainer found.", 404));
     }
-    await sendEmail(
-      trainer.email,
-      "Trainer suggestion",
-      `Hello ${trainer.name},
-
-We are pleased to inform you that you have been assigned to a new training session.
-
-📌 Course Subject: ${courseSubject}
-📌 Location: Online / In-Person (as per schedule)
-
-Please confirm your availability at your earliest convenience.
-
-Best regards,  
-The My Company Team
-`
-    );
+  
 
     res.status(200).json({
       status: "success",
